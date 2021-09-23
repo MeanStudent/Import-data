@@ -4,6 +4,8 @@ output: html_document
 ---
 ```{r, echo = FALSE,message = FALSE}
 library(tidyverse)
+library(readxl)
+library(haven)
 #library(janitor) 也可以使用 janitor::clean_names()后者不用将janitor包中的所有内容全部应用
 ```
 
@@ -67,5 +69,39 @@ litters_data = read_csv(file = "./data/FAS_litters.csv",
   )
 )
 tail(litters_data)
+```
+## import xlsx datas
+```{r}
+mlb11_df = read_excel("data/mlb11.xlsx")
+mlb11_df
+?read_excel
+```
+
+## 区块引用数据
+```{r}
+MLb_df = read_excel("data/LotR_Words.xlsx",range = "B3:D6")
+MLb_df
+```
+
+
+## Read a SAS file
+```{r, eval = FALSE}
+pulse_df = read_sas("data/public_pulse_data.sas7bdat")
+?read_sas
+```
+
+## Why never use read.csv?
+```{r, eval = FALSE}
+litters_df_base = read.csv("data/FAS_litters.csv")#import every thing and shows as a df 
+litters_df = read_csv("data/FAS_litters.csv")
+litters_df
+```
+```{r, eval = FALSE}
+litters_df_base
+```
+## exporting data
+a good way
+```{r}
+write_csv(MLb_df,"data/fellowship_words.csv")
 ```
 
