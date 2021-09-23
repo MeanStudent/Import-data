@@ -26,6 +26,7 @@ litters_df
 ```
 ```{r}
 litters_df
+#显示头几行和尾几行
 head(litters_df)
 tail(litters_df)
 ```
@@ -39,4 +40,32 @@ here's skimr
 skimr::skim(litters_df)
 ```
 
+```{r, eval = FALSE}
+help(read_csv)
+litters_df = read_csv(
+  "data/FAS_litters.csv",
+  skip = 5,
+  col_names = FALSE,
+  na = "low"
+                      )
+View(litters_df)
+```
+
+## Parsing columns
+```{r}
+#设置每列数据的数据格式，read_csv 一般都会正确识别每一行数据的类型
+litters_data = read_csv(file = "./data/FAS_litters.csv",
+  col_types = cols(
+    Group = col_character(),
+    `Litter Number` = col_character(),
+    `GD0 weight` = col_double(),
+    `GD18 weight` = col_double(),
+    `GD of Birth` = col_integer(),
+    `Pups born alive` = col_integer(),
+    `Pups dead @ birth` = col_integer(),
+    `Pups survive` = col_integer()
+  )
+)
+tail(litters_data)
+```
 

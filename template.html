@@ -235,7 +235,8 @@ litters_df</code></pre>
 ## 10 Con8  #3/5/2/2/95           28.5        NA            20               8
 ## # … with 39 more rows, and 2 more variables: pups_dead_birth &lt;dbl&gt;,
 ## #   pups_survive &lt;dbl&gt;</code></pre>
-<pre class="r"><code>head(litters_df)</code></pre>
+<pre class="r"><code>#显示头几行和尾几行
+head(litters_df)</code></pre>
 <pre><code>## # A tibble: 6 x 8
 ##   group litter_number gd0_weight gd18_weight gd_of_birth pups_born_alive
 ##   &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;
@@ -259,6 +260,257 @@ litters_df</code></pre>
 ## # … with 2 more variables: pups_dead_birth &lt;dbl&gt;, pups_survive &lt;dbl&gt;</code></pre>
 <p>One jeff use a lot</p>
 <pre class="r"><code>View(litters_df)</code></pre>
+<p>here’s skimr</p>
+<pre class="r"><code>skimr::skim(litters_df)</code></pre>
+<table>
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">litters_df</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">49</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">8</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">group</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">6</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">litter_number</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">15</td>
+<td align="right">0</td>
+<td align="right">49</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">gd0_weight</td>
+<td align="right">15</td>
+<td align="right">0.69</td>
+<td align="right">24.38</td>
+<td align="right">3.28</td>
+<td align="right">17.0</td>
+<td align="right">22.30</td>
+<td align="right">24.10</td>
+<td align="right">26.67</td>
+<td align="right">33.4</td>
+<td align="left">▃▇▇▆▁</td>
+</tr>
+<tr class="even">
+<td align="left">gd18_weight</td>
+<td align="right">17</td>
+<td align="right">0.65</td>
+<td align="right">41.52</td>
+<td align="right">4.05</td>
+<td align="right">33.4</td>
+<td align="right">38.88</td>
+<td align="right">42.25</td>
+<td align="right">43.80</td>
+<td align="right">52.7</td>
+<td align="left">▃▃▇▂▁</td>
+</tr>
+<tr class="odd">
+<td align="left">gd_of_birth</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">19.65</td>
+<td align="right">0.48</td>
+<td align="right">19.0</td>
+<td align="right">19.00</td>
+<td align="right">20.00</td>
+<td align="right">20.00</td>
+<td align="right">20.0</td>
+<td align="left">▅▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">pups_born_alive</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">7.35</td>
+<td align="right">1.76</td>
+<td align="right">3.0</td>
+<td align="right">6.00</td>
+<td align="right">8.00</td>
+<td align="right">8.00</td>
+<td align="right">11.0</td>
+<td align="left">▁▃▂▇▁</td>
+</tr>
+<tr class="odd">
+<td align="left">pups_dead_birth</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">0.33</td>
+<td align="right">0.75</td>
+<td align="right">0.0</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">4.0</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">pups_survive</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">6.41</td>
+<td align="right">2.05</td>
+<td align="right">1.0</td>
+<td align="right">5.00</td>
+<td align="right">7.00</td>
+<td align="right">8.00</td>
+<td align="right">9.0</td>
+<td align="left">▁▃▂▇▇</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>help(read_csv)
+litters_df = read_csv(
+  &quot;data/FAS_litters.csv&quot;,
+  skip = 5,
+  col_names = FALSE,
+  na = &quot;low&quot;
+                      )
+View(litters_df)</code></pre>
+</div>
+<div id="parsing-columns" class="section level2">
+<h2>Parsing columns</h2>
+<pre class="r"><code>#设置每列数据的数据格式，read_csv 一般都会正确识别每一行数据的类型
+litters_data = read_csv(file = &quot;./data/FAS_litters.csv&quot;,
+  col_types = cols(
+    Group = col_character(),
+    `Litter Number` = col_character(),
+    `GD0 weight` = col_double(),
+    `GD18 weight` = col_double(),
+    `GD of Birth` = col_integer(),
+    `Pups born alive` = col_integer(),
+    `Pups dead @ birth` = col_integer(),
+    `Pups survive` = col_integer()
+  )
+)
+tail(litters_data)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+##   Group `Litter Number` `GD0 weight` `GD18 weight` `GD of Birth`
+##   &lt;chr&gt; &lt;chr&gt;                  &lt;dbl&gt;         &lt;dbl&gt;         &lt;int&gt;
+## 1 Low8  #79                     25.4          43.8            19
+## 2 Low8  #100                    20            39.2            20
+## 3 Low8  #4/84                   21.8          35.2            20
+## 4 Low8  #108                    25.6          47.5            20
+## 5 Low8  #99                     23.5          39              20
+## 6 Low8  #110                    25.5          42.7            20
+## # … with 3 more variables: Pups born alive &lt;int&gt;, Pups dead @ birth &lt;int&gt;,
+## #   Pups survive &lt;int&gt;</code></pre>
+</div>
+<div id="import-xlsx-datas" class="section level2">
+<h2>import xlsx datas</h2>
+<pre class="r"><code>mlb11_df = read_excel(&quot;data/mlb11.xlsx&quot;)
+mlb11_df</code></pre>
+<pre><code>## # A tibble: 30 x 12
+##    team        runs at_bats  hits homeruns bat_avg strikeouts stolen_bases  wins
+##    &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;
+##  1 Texas Ran…   855    5659  1599      210   0.283        930          143    96
+##  2 Boston Re…   875    5710  1600      203   0.28        1108          102    90
+##  3 Detroit T…   787    5563  1540      169   0.277       1143           49    95
+##  4 Kansas Ci…   730    5672  1560      129   0.275       1006          153    71
+##  5 St. Louis…   762    5532  1513      162   0.273        978           57    90
+##  6 New York …   718    5600  1477      108   0.264       1085          130    77
+##  7 New York …   867    5518  1452      222   0.263       1138          147    97
+##  8 Milwaukee…   721    5447  1422      185   0.261       1083           94    96
+##  9 Colorado …   735    5544  1429      163   0.258       1201          118    73
+## 10 Houston A…   615    5598  1442       95   0.258       1164          118    56
+## # … with 20 more rows, and 3 more variables: new_onbase &lt;dbl&gt;, new_slug &lt;dbl&gt;,
+## #   new_obs &lt;dbl&gt;</code></pre>
+<pre class="r"><code>?read_excel</code></pre>
+</div>
+<div id="区块引用数据" class="section level2">
+<h2>区块引用数据</h2>
+<pre class="r"><code>MLb_df = read_excel(&quot;data/LotR_Words.xlsx&quot;,range = &quot;B3:D6&quot;)
+MLb_df</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   Race   Female  Male
+##   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 Elf      1229   971
+## 2 Hobbit     14  3644
+## 3 Man         0  1995</code></pre>
+</div>
+<div id="read-a-sas-file" class="section level2">
+<h2>Read a SAS file</h2>
+<pre class="r"><code>pulse_df = read_sas(&quot;data/public_pulse_data.sas7bdat&quot;)
+?read_sas</code></pre>
 </div>
 
 
