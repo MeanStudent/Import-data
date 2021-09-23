@@ -2,20 +2,41 @@
 title: "Simple document"
 output: html_document
 ---
-
-I'm an R Markdown document! 
-
-# Section 1
-
-Here's a **code chunk** that samples from 
-a _normal distribution_:
-
-```{r}
-samp = rnorm(100)
-length(samp)
+```{r, echo = FALSE,message = FALSE}
+library(tidyverse)
+#library(janitor) 也可以使用 janitor::clean_names()后者不用将janitor包中的所有内容全部应用
 ```
 
-# Section 2
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+## import dataset 'FAS_litters.csv'
+Absolute Path: /Users/kaiyuhe/Desktop/data/Rdata/Import-data/data/FAS_litters.csv #only works on this computer
+Relative Path: /data/FAS_litters.csv #
+```{r}
+setwd("/Users/kaiyuhe/Desktop/data/Rdata/Import-data") #don't do this often
+
+litters_df = read_csv("data/FAS_litters.csv")
+litters_df
+```
+
+```{r}
+names(litters_df)
+
+litters_df = janitor::clean_names(litters_df)
+litters_df
+```
+```{r}
+litters_df
+head(litters_df)
+tail(litters_df)
+```
+One jeff use a lot
+```{r, eval = FALSE}
+View(litters_df)
+```
+
+here's skimr
+```{r}
+skimr::skim(litters_df)
+```
+
+
